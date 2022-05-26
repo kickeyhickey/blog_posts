@@ -70,7 +70,8 @@ GEM
     bootsnap (1.11.1)
       msgpack (~> 1.2)
     builder (3.2.4)
-    bulma (0.1.0)
+    bulma-rails (0.1.2)
+      sass (~> 3.2)
     coderay (1.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
@@ -210,6 +211,11 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     shellany (0.0.1)
     simple_form (5.1.0)
       actionpack (>= 5.2)
@@ -247,7 +253,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bulma (~> 0.1.0)
+  bulma-rails (~> 0.1.0)
   debug
   guard (~> 2.14)
   guard-livereload (~> 2.5)

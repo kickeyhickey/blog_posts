@@ -54,7 +54,7 @@ gem "bootsnap", require: false
 gem 'simple_form'
 
 # CSS framework based on flexbox
-gem 'bulma', '~> 0.1.0'
+gem 'bulma-rails', '~> 0.1.0'
 
 
 group :development, :test do
