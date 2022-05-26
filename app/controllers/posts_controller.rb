@@ -4,18 +4,23 @@ class PostsController < ApplicationController
         @posts = Post.all
     end
 
+
+    def new
+        @post = Post.new
+    end
+
     def show
         post = Post.find(params[:id])
         render json: post
     end
 
     def create
-        post = Post.create(post_params)
+        @post = Post.create(post_params)
 
-        if post.valid?
-            render json: post
+        if @post.save?
+            redirect_to @post
         else 
-            render json: post.errors, status:422
+            render 'new'
         end
     end
 
