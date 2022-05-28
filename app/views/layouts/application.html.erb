@@ -37,31 +37,13 @@
   <!-- Hero content: will be in the middle -->
   <div class="hero-body">
     <div class="container has-text-centered">
-      <p class="title">
-        Title
-      </p>
-      <p class="subtitle">
-        Subtitle
-      </p>
+      <h1 class="title">
+        <%= yield :page_title %>
+      </h1>
     </div>
   </div>
-
-  <!-- Hero footer: will stick at the bottom -->
-  <div class="hero-foot">
-    <nav class="tabs">
-      <div class="container">
-        <ul>
-          <li class="is-active"><a>Overview</a></li>
-          <li><a>Modifiers</a></li>
-          <li><a>Grid</a></li>
-          <li><a>Elements</a></li>
-          <li><a>Components</a></li>
-          <li><a>Layout</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
 </section> 
+
     <%= yield %>
   </body>
 </html>

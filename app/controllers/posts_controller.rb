@@ -25,13 +25,16 @@ class PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
-        post.update(post_params)
 
-        if post.valid?
-            render json: post
-        else
-            render json: post.errors, status:422
-        end
+       if @post.update(post_params)
+            redirect_to @post
+       else
+            render 'edit'
+       end
+    end
+
+    def edit
+        @post = Post.find(params[:id])
     end
 
     def destroy
