@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     def create
         @post = Post.create(post_params)
 
-        if @post.save?
+        if @post.valid?
             redirect_to @post
         else 
             render 'new'
@@ -38,9 +38,10 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        post = Post.find(params[:id])
-        post.destroy
-        render json: post
+        @post = Post.find(params[:id])
+        @post.destroy
+
+        redirect_to posts_path
     end
 
 
@@ -48,5 +49,4 @@ class PostsController < ApplicationController
     def post_params
         params.require(:post).permit(:title, :content)
     end
-
 end
