@@ -9,19 +9,20 @@ class PostsController < ApplicationController
         @post = Post.new
     end
 
+    def create
+        @post = Post.create(post_params)
+ 
+        if @post.valid?
+            redirect_to @post
+        else
+            render 'new'
+        end
+    end
+    
     def show
         @post = Post.find(params[:id])
    end
 
-    def create
-        @post = Post.create(post_params)
-
-        if @post.valid?
-            redirect_to @post
-        else 
-            render 'new'
-        end
-    end
 
     def update
         @post = Post.find(params[:id])
