@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
-  # get 'posts/:id' => 'posts#show'
-  # get 'posts/new' => 'posts#new'
-  # post 'posts' => 'posts#create'
-  # patch 'posts/:id' => 'posts#update'
-  # delete 'posts/:id' => 'posts#destroy'
+  resources :posts do
+  resources :comments
+  end
+  
   root 'posts#index'
 end
