@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* button creation - with bulma css (this allows for func and for the confirmation window to appear)
+    - when creating the delete button with Rails 7
+      - don't use link_to, instead use button_to
+    -  use: 
+       -  form: { data: { turbo_confirm: "are you sure?" } }, instead of, data: { confirm: "are you sure?" } 

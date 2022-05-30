@@ -25,7 +25,6 @@ RSpec.describe "Posts", type: :request do
     Post.create(post_1)
     posts = Post.create(post_1)
     get '/posts'
-    posts = JSON.parse(response.body)
     expect(response).to have_http_status(200)
     end
   end
@@ -35,7 +34,6 @@ RSpec.describe "Posts", type: :request do
       post = Post.create(post_1)
       blog1 = Post.last
       get "/posts/#{blog1.id}"
-      post = JSON.parse(response.body)
       expect(response).to have_http_status(200)
     end
   end
@@ -43,7 +41,6 @@ RSpec.describe "Posts", type: :request do
   describe "POST /create" do
     it 'creates a single post' do
       post '/posts', params: {post: post_1}
-      blog1 = JSON.parse(response.body)
       expect(response).to have_http_status(200)
     end
   end
@@ -53,7 +50,6 @@ RSpec.describe "Posts", type: :request do
       Post.create(post_1)
       blog1 = Post.last
       patch "/posts/#{blog1.id}", params: {post: post_edit}
-      blog1 = JSON.parse(response.body)
       expect(response).to have_http_status(200)
     end
   end
@@ -62,7 +58,6 @@ RSpec.describe "Posts", type: :request do
     it 'deletes a single post' do
       blog1 = Post.create(post_1)
       delete "/posts/#{blog1.id}"
-      blog1 = JSON.parse(response.body)
       expect(response).to have_http_status(200)
     end
   end
