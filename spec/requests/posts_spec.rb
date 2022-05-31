@@ -41,7 +41,9 @@ RSpec.describe "Posts", type: :request do
   describe "POST /create" do
     it 'creates a single post' do
       post '/posts', params: {post: post_1}
-      expect(response).to have_http_status(200)
+      post1 = Post.last
+      expect(post1.title).to eq 'my diary'
+      expect(post1).to be_valid
     end
   end
 
@@ -50,7 +52,7 @@ RSpec.describe "Posts", type: :request do
       Post.create(post_1)
       blog1 = Post.last
       patch "/posts/#{blog1.id}", params: {post: post_edit}
-      expect(response).to have_http_status(200)
+      expect(blog1).to be_valid
     end
   end
 
@@ -58,7 +60,7 @@ RSpec.describe "Posts", type: :request do
     it 'deletes a single post' do
       blog1 = Post.create(post_1)
       delete "/posts/#{blog1.id}"
-      expect(response).to have_http_status(200)
+      expect(blog1).to be_valid
     end
   end
 
